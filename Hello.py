@@ -5,6 +5,7 @@ from scipy.sparse.csc import csc_matrix
 from sklearn.decomposition.pca import PCA
 from sklearn.feature_extraction.text import CountVectorizer
 
+
 if __name__ == "__main__":
     cv_abt = CountVectorizer(ngram_range=(1, 2), dtype='int16', stop_words='english')
     cv_buy = CountVectorizer(ngram_range=(1, 2), dtype='int16', stop_words='english')
@@ -13,7 +14,7 @@ if __name__ == "__main__":
     ABTBUY = 'abtbuy'
     ABT = 'abt'
     BUY = 'buy'
-    MAPPING = 'abtbuy'
+    MAPPING = 'mapping'
 
     ID = 'id'
     NAME = 'name'
