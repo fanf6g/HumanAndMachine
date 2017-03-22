@@ -206,8 +206,8 @@ if __name__ == "__main__":
     vecs_abt, vecs_buy = docs2vecs(tagDocsAbt, tagDocsBuy)
     # vecs_buy = docs2vecs(tagDocsBuy)
 
-    set_pos = loadIDs('abtbuy_pos.csv', id_abt, id_buy)
-    set_inc = loadIDs('abtbuy_inc.csv', id_abt, id_buy)
+    set_pos = loadIDs('xu/abtbuy_pos.csv', id_abt, id_buy)
+    set_inc = loadIDs('xu/abtbuy_inc.csv', id_abt, id_buy)
 
     set_all = catesian(id_abt, id_buy)
 
