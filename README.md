@@ -20,4 +20,10 @@ There are two steps for our approach:
 Each iteration take $O(log(n))$ operations.
 The total complexity can be restricted to less than $O(log^2(n))$.
 
+## Contribution
+1.  **max_weight_matching** to find best matching;
+2. **binary seraching** for efficient stopping;
+3. **grouply** verify the matchings to prevent casually **un-matching**;
+3. **iteratively** to handle **transitivity** of matching;
+
 ## Experimental Evaluation

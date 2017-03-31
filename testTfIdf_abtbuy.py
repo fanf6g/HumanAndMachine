@@ -6,8 +6,13 @@ from networkx.convert_matrix import from_numpy_matrix
 from scipy.linalg import block_diag
 from sklearn.feature_extraction.text import TfidfVectorizer
 
+
+def binary_search(pairs, weights, groudTruth):
+    pass
+
+
 if __name__ == "__main__":
-    cv = TfidfVectorizer(ngram_range=(1, 1), dtype='int16', stop_words='english')
+    cv = TfidfVectorizer(ngram_range=(1, 2), dtype='int16', stop_words='english')
     # cv_buy = CountVectorizer(ngram_range=(1, 2), dtype='int16', stop_words='english')
     client = pymongo.MongoClient('localhost', 27017)
 
@@ -69,7 +74,7 @@ if __name__ == "__main__":
     print(mask)
 
     # 计算上三角矩阵
-    m = np.triu(m_sim * (m_sim >= 0.2), k=1) * mask
+    m = np.triu(m_sim * (m_sim >= 0.45), k=1) * mask
     print(m)
     G = from_numpy_matrix(m)
     # print(G.edges())
@@ -77,7 +82,7 @@ if __name__ == "__main__":
 
     max_w = max_weight_matching(G)
 
-    # pair1 = [(str(i) + '_' + str(j)) for (i, j) in max_w.items() if i < j]
+    # pair1     = [(str(i) + '_' + str(j)) for (i, j) in max_w.items() if i < j]
     pairs = np.array([(str(ids[i]) + '_' + str(ids[j])) for (i, j) in max_w.items() if i < j])
     weiths = np.array([G[i][j]['weight'] for (i, j) in max_w.items() if i < j])
     print(len(pairs))
